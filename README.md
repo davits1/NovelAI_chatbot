@@ -6,28 +6,27 @@ This bot is designed to be a straightforward example of how to interact with Nov
 
 ## Features
 
-* **Conversational AI:** Connects to NovelAI's powerful `glm-4-6` model.
-* **Conversation Memory:** Maintains a rolling in-memory conversation history to provide context for the AI.
-* **Customizable Persona:** Easily change the bot's personality by editing the `SYSTEM_PROMPT` variable.
-* **Simple Commands:** Includes `/start` and `/reset` commands to manage the conversation flow.
-* **Persistent chat history**: Conversations are stored in a log file for the AI to keep track of it even when the bot is closed. Send `/reset` to delete chat history.
-  
+  * **Conversational AI:** Connects to NovelAI's powerful `glm-4-6` model.
+  * **Customizable Persona:** Easily change the bot's personality by editing the `prompt.txt` file.
+  * **Simple Commands:** Includes `/start` and `/reset` commands to manage the conversation flow.
+  * **Persistent chat history**: Conversations are stored in a log file for the AI to keep track of them even when the bot is closed. Send `/reset` to delete chat history.
+
 ## Tech Stack
 
-* [Python 3](https://www.python.org/)
-* [python-telegram-bot](https://python-telegram-bot.org/)
-* [requests](https://requests.readthedocs.io/en/latest/)
+  * [Python 3](https://www.python.org/)
+  * [python-telegram-bot](https://python-telegram-bot.org/)
+  * [requests](https://requests.readthedocs.io/en/latest/)
 
 ## Installation & Setup
 
 Follow these steps to get the bot running on your own machine.
 
-### 1. Clone the Repository
+### 1\. Clone the Repository
 
 ```bash
 git clone [https://github.com/davits1/novelai_chatbot.git](https://github.com/davits1/novelai_chatbot.git)
 cd novelai_chatbot
-````
+```
 
 ### 2\. Create a Virtual Environment (Recommended)
 
@@ -49,7 +48,7 @@ This project requires `python-telegram-bot` and `requests`. You can install them
 pip install python-telegram-bot requests
 ```
 
-### 4. Configuration
+### 4\. Configuration
 
 1.  In the project folder, make a copy of `config.py.template` and rename it to `config.py`.
 2.  Open `config.py` with your code editor.
