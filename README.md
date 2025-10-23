@@ -64,10 +64,3 @@ python GLMBot_v0.3.py
 ```
 
 Your bot is now online\! You can interact with it on Telegram.
-
-## License
-
-This project is licensed under the MIT License.
-
-```
-```
