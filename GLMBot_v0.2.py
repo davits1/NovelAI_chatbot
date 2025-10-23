@@ -110,6 +110,12 @@ async def handle_message(update: Update, context: ContextTypes.DEFAULT_TYPE) -> 
         if raw_response:
             cleaned_response = raw_response.strip()
             
+            # ¡CAMBIO NUEVO! Limpiamos el stop token del final
+            if cleaned_response.endswith("\nUSER:"):
+                cleaned_response = cleaned_response[:-len("\nUSER:")].strip()
+            elif cleaned_response.endswith("\nUSER"):
+                cleaned_response = cleaned_response[:-len("\nUSER")].strip()
+            
             # Guardamos el diálogo formateado en el historial
             chat_histories[chat_id].append(user_line) # Guardamos el "USER: ..."
             chat_histories[chat_id].append(f"\nAURA: {cleaned_response}") # Guardamos el "AURA: ..."
@@ -148,4 +154,5 @@ def main() -> None:
 
 if __name__ == '__main__':
     main()
+
 
