@@ -108,11 +108,17 @@ async def handle_message(update: Update, context: ContextTypes.DEFAULT_TYPE) -> 
             if cleaned_response.upper().startswith("AURA:"):
                  cleaned_response = cleaned_response[5:].lstrip()
 
-            # Add assistant's response to history
-            chat_histories[chat_id].append({"role": "assistant", "content": cleaned_response})
-
-            # Send the cleaned response to the user
-            await update.message.reply_text(cleaned_response)
+            # NEW: Check if the response is empty *after* cleaning
+            if cleaned_response:
+                # Add assistant's response to history
+                chat_histories[chat_id].append({"role": "assistant", "content": cleaned_response})
+                # Send the cleaned response to the user
+                await update.message.reply_text(cleaned_response)
+            else:
+                # If the response was just an empty string or a stop token,
+                # send a message instead of crashing.
+                logger.info("API returned an empty response after cleaning.")
+                await update.message.reply_text("I... drew a blank. 😅 Try rephrasing that?")
         else:
             logger.error("API response format is unexpected: %s", data)
             await update.message.reply_text("I received a weird response from the mothership. Try again in a moment.")
@@ -165,4 +171,3 @@ def main() -> None:
 
 if __name__ == '__main__':
     main()
-
