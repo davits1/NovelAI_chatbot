@@ -7,3 +7,5 @@ __pycache__/
 # Entorno virtual (si usas uno)
 venv/
 .venv/
+
+chat_history/

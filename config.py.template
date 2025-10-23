@@ -6,6 +6,12 @@
 TELEGRAM_TOKEN = "PASTE YOUR TELEGRAM TOKEN HERE"
 NOVELAI_API_KEY = "PASTE YOUR NOVELAI API KEY HERE"
 
+# Historial de chat
+HISTORY_DIR = "chat_history"
+
+# Límite de contexto
+MAX_PROMPT_CHARS = 100000
+
 # --- CONFIGURACIÓN DEL MODELO ---
 MODEL_NAME = "glm-4-6"
 PROMPT_FILE = "prompt.txt" # Nombre del archivo de tu system prompt
