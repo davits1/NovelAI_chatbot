@@ -48,26 +48,11 @@ This project requires `python-telegram-bot` and `requests`. You can install them
 pip install python-telegram-bot requests
 ```
 
-### 4\. Configuration
+### 4. Configuration
 
-You must add your secret tokens to the script before running it.
-
-1.  Open `GLMBot_v0.2.py` in your code editor.
-
-2.  Find the following lines near the top:
-
-    ```python
-    # --- CONFIGURACIÓN ---
-    TELEGRAM_TOKEN = os.getenv("TELEGRAM_TOKEN", "PASTE_YOUR_TELEGRAM_TOKEN_HERE")
-    NOVELAI_API_KEY = os.getenv("NOVELAI_API_KEY", "PASTE_YOUR_NAI_API_KEY_HERE")
-    ```
-
-3.  Replace `"PASTE_YOUR_TELEGRAM_TOKEN_HERE"` with your actual Telegram Bot Token from BotFather.
-
-4.  Replace `"PASTE_YOUR_NAI_API_KEY_HERE"` with your NovelAI Persistent API Key.
-
-**(Optional) Customize Persona:**
-You can change the bot's entire personality by editing the `SYSTEM_PROMPT` variable in the same file.
+1.  In the project folder, make a copy of `config.py.template` and rename it to `config.py`.
+2.  Open `config.py` with your code editor.
+3.  Paste your Telegram Token and NovelAI API Key inside the quotes.
 
 ## Usage
 
