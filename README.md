@@ -59,7 +59,7 @@ pip install python-telegram-bot requests
 Once your virtual environment is activated and your tokens are set, simply run the script:
 
 ```bash
-python GLMBot_v0.2.py
+python GLMBot_v0.3.py
 ```
 
 Your bot is now online\! You can interact with it on Telegram.
