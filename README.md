@@ -11,7 +11,7 @@ This bot is designed to be a straightforward example of how to interact with Nov
 * **Customizable Persona:** Easily change the bot's personality by editing the `SYSTEM_PROMPT` variable.
 * **Simple Commands:** Includes `/start` and `/reset` commands to manage the conversation flow.
 * **Persistent chat history**: Conversations are stored in a log file for the AI to keep track of it even when the bot is closed. Send `/reset` to delete chat history.
-* 
+  
 ## Tech Stack
 
 * [Python 3](https://www.python.org/)
