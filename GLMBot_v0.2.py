@@ -7,8 +7,8 @@ from telegram.ext import Application, CommandHandler, MessageHandler, filters, C
 from telegram.constants import ChatAction
 
 # --- CONFIGURACIÓN ---
-TELEGRAM_TOKEN = os.getenv("TELEGRAM_TOKEN", "8373429640:AAFL4ZIr68aopBsD2rh_btg9qT-c5NdtRRs")
-NOVELAI_API_KEY = os.getenv("NOVELAI_API_KEY", "pst-y0qjuNMuUXp5QKBKsxxIuzbVqc93qLnZeNtNrkRVYgwxlYFezrHA6Pu1svJrnuGh")
+TELEGRAM_TOKEN = os.getenv("TELEGRAM_TOKEN", "PASTE_YOUR_TELEGRAM_TOKEN_HERE")
+NOVELAI_API_KEY = os.getenv("NOVELAI_API_KEY", "PASTE_YOUR_NAI_API_KEY_HERE")
 
 # ¡CAMBIO CLAVE! Apuntamos al endpoint /completions, no /chat/completions
 NOVELAI_API_URL = "https://text.novelai.net/oa/v1/completions"
@@ -154,5 +154,6 @@ def main() -> None:
 
 if __name__ == '__main__':
     main()
+
 
 
