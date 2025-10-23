@@ -1,0 +1,9 @@
+# Archivo de configuración con secretos
+config.py
+
+# Caché de Python
+__pycache__/
+
+# Entorno virtual (si usas uno)
+venv/
+.venv/
