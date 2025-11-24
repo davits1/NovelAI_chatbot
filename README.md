@@ -1,48 +1,45 @@
-# NovelAI GLM-4.6 Telegram Bot
+# NovelAI GLM-4.6 + Image Generation Telegram Bot (v0.5)
 
-A simple, conversational Python bot that connects Telegram to NovelAI's GLM-4.6 text completion model.
+A conversational Python bot that brings NovelAI's powerful text and image models to Telegram.
 
-This bot is designed to be a straightforward example of how to interact with NovelAI's OpenAI-compatible API (specifically the `/oa/v1/completions` endpoint) using Python. It uses the `python-telegram-bot` library for the Telegram interface and `requests` for API calls.
+This bot connects to NovelAI's `glm-4-6` text model for chatting and seamlessly integrates with the `nai-diffusion-4-5-full` (V4) image model. It uses an **"Intercept & Render"** logic, allowing the bot to "decide" when to send an image based on the conversation context.
 
 ## Features
 
-  * **Conversational AI:** Connects to NovelAI's powerful `glm-4-6` model.
-  * **Customizable Persona:** Easily change the bot's personality by editing the `prompt.txt` file.
-  * **Simple Commands:** Includes `/start` and `/reset` commands to manage the conversation flow.
-  * **Persistent chat history**: Conversations are stored in a log file for the AI to keep track of them even when the bot is closed. Send `/reset` to delete chat history.
+* **Conversational AI:** Powered by NovelAI's `glm-4-6` model for high-quality roleplay and chat.
+* **Visual Capabilities (NEW):** The bot can generate and send images on the fly. When the persona writes a prompt inside `[brackets]`, the bot intercepts it, generates the image using NovelAI's V4 model, and sends it to the chat.
+* **Dynamic Identity (NEW):** Easily change the bot's name and personality via `config.py` and `prompt.txt`.
+* **Quality Control:** Includes hidden "Quality Tags" and "Negative Prompts" injection to ensure high-quality, aesthetic image outputs automatically.
+* **Persistent Memory:** Conversations are stored in local log files so the bot remembers context between restarts.
 
 ## Tech Stack
 
-  * [Python 3](https://www.python.org/)
-  * [python-telegram-bot](https://python-telegram-bot.org/)
-  * [requests](https://requests.readthedocs.io/en/latest/)
+* [Python 3](https://www.python.org/)
+* [python-telegram-bot](https://python-telegram-bot.org/)
+* [requests](https://requests.readthedocs.io/en/latest/)
 
 ## Installation & Setup
 
-Follow these steps to get the bot running on your own machine.
-
-### 1\. Clone the Repository
+### 1. Clone the Repository
 
 ```bash
 git clone [https://github.com/davits1/novelai_chatbot.git](https://github.com/davits1/novelai_chatbot.git)
 cd novelai_chatbot
-```
+````
 
 ### 2\. Create a Virtual Environment (Recommended)
 
 ```bash
-# For Windows (PowerShell)
+# Windows (PowerShell)
 python -m venv venv
 .\venv\Scripts\Activate.ps1
 
-# For macOS/Linux
+# macOS/Linux
 python3 -m venv venv
 source venv/bin/activate
 ```
 
 ### 3\. Install Dependencies
-
-This project requires `python-telegram-bot` and `requests`. You can install them using pip:
 
 ```bash
 pip install python-telegram-bot requests
@@ -50,16 +47,34 @@ pip install python-telegram-bot requests
 
 ### 4\. Configuration
 
-1.  In the project folder, make a copy of `config.py.template` and rename it to `config.py`.
-2.  Open `config.py` with your code editor.
-3.  Paste your Telegram Token and NovelAI API Key inside the quotes.
+1.  Rename `config.py.template` to `config.py`.
+2.  Open `config.py` and paste your **Telegram Token** and **NovelAI API Key**.
+3.  (Optional) Adjust the `BOT_NAME`, `DEFAULT_QUALITY_TAGS` (for image style), or the `DEFAULT_NEGATIVE_PROMPT` if you want to filter specific content.
+
+### 5\. Customizing the Personality
+
+Edit `prompt.txt` to change how the bot behaves. To enable image generation, ensure your system prompt includes the instructions for the bot to use square brackets (already included in the default system prompt).
+
+**Example Instruction:**
+
+> "If the user asks for a selfie, describe the image inside square brackets like this: [1girl, selfie, smile]"
 
 ## Usage
 
-Once your virtual environment is activated and your tokens are set, simply run the script:
+Run the script to start the bot:
 
 ```bash
-python GLMBot_v0.4.py
+python GLMBot_v0.5.py
 ```
 
-Your bot is now online\! You can interact with it on Telegram.
+The bot is now online\!
+
+### Commands
+
+  * `/start` - Initialize the conversation.
+  * `/reset` - Delete the conversation history and start fresh.
+
+<!-- end list -->
+
+```
+```
