@@ -13,6 +13,7 @@ HISTORY_DIR = "chat_history"
 MAX_PROMPT_CHARS = 100000
 
 # --- CONFIGURACIÓN DEL MODELO ---
+BOT_NAME = "Aura" # Nombre de tu bot
 MODEL_NAME = "glm-4-6"
 PROMPT_FILE = "prompt.txt" # Nombre del archivo de tu system prompt
 
