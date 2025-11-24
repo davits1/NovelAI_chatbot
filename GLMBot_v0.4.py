@@ -11,6 +11,8 @@ from telegram.constants import ChatAction
 TELEGRAM_TOKEN = config.TELEGRAM_TOKEN
 NOVELAI_API_KEY = config.NOVELAI_API_KEY
 MODEL_NAME = config.MODEL_NAME
+# Intentamos obtener BOT_NAME, si no existe usamos "Aura" por defecto
+BOT_NAME = getattr(config, 'BOT_NAME', 'Aura')
 
 NOVELAI_API_URL = "https://text.novelai.net/oa/v1/completions" # Esta la podemos dejar
 
@@ -79,7 +81,7 @@ def append_to_history(chat_id: int, user_line: str, aura_line: str):
 
 async def start_command(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     # Ya no necesitamos inicializar el historial en memoria
-    await update.message.reply_text("Aura initialized. Conversation history is now persistent. Use /reset to clear our conversation.")
+    await update.message.reply_text(f"{BOT_NAME} initialized. Conversation history is now persistent. Use /reset to clear our conversation.")
 
 async def reset_command(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     chat_id = update.effective_chat.id
@@ -113,8 +115,8 @@ async def handle_message(update: Update, context: ContextTypes.DEFAULT_TYPE) -> 
         # 1. Cargamos y truncamos el historial guardado
         loaded_history = load_and_truncate_history(chat_id)
         
-        # 2. Empezamos con el prompt del sistema
-        prompt_string = SYSTEM_PROMPT
+        # 2. Empezamos con el prompt del sistema y formateamos el nombre
+        prompt_string = SYSTEM_PROMPT.format(bot_name=BOT_NAME)
         
         # 3. Agregamos el historial de chat (que ya está formateado)
         prompt_string += loaded_history
@@ -124,7 +126,7 @@ async def handle_message(update: Update, context: ContextTypes.DEFAULT_TYPE) -> 
         prompt_string += user_line
         
         # 5. Le decimos a la IA que es su turno
-        prompt_string += "\nAURA:"
+        prompt_string += f"\n{BOT_NAME}:"
         # -----------------------------------------------------------
 
         headers = {
@@ -175,7 +177,7 @@ async def handle_message(update: Update, context: ContextTypes.DEFAULT_TYPE) -> 
                 cleaned_response = cleaned_response[:-len("\nUSER")].strip()
             
             # --- ¡CAMBIO CLAVE! Guardamos en el archivo ---
-            aura_line = f"\nAURA: {cleaned_response}"
+            aura_line = f"\n{BOT_NAME}: {cleaned_response}"
             append_to_history(chat_id, user_line, aura_line)
             
             await update.message.reply_text(cleaned_response)
