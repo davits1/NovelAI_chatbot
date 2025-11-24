@@ -23,3 +23,27 @@ TEMPERATURE = 0.8
 MAX_TOKENS = 512
 TOP_P = 0.9
 STOP_SEQUENCES = ["\nUSER:"] # Lo ponemos como lista por si quieres añadir más
+
+# --- CONFIGURACIÓN DE IMAGEN (NOVELAI V4) ---
+# Estos ajustes afectan a la calidad por defecto de todas las imágenes
+
+IMAGE_WIDTH = 832
+IMAGE_HEIGHT = 1216
+IMAGE_SCALE = 6
+IMAGE_STEPS = 28
+IMAGE_SAMPLER = "k_euler_ancestral"
+IMAGE_NOISE_SCHEDULE = "karras"
+
+# Tags de Calidad (Se añaden al INICIO de cada prompt)
+
+DEFAULT_QUALITY_TAGS = "very aesthetic, masterpiece, no text"
+
+# Undesired Content (Se envía como Negative Prompt oculto)
+
+DEFAULT_NEGATIVE_PROMPT = (
+"nsfw, lowres, artistic error, film grain, scan artifacts, "
+"worst quality, bad quality, jpeg artifacts, very displeasing, "
+"chromatic aberration, dithering, halftone, screentone, "
+"multiple views, logo, too many watermarks, negative space, "
+"blank page, @_@, mismatched pupils, glowing eyes, bad anatomy"
+)
