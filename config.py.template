@@ -22,7 +22,7 @@ PROMPT_FILE = "prompt.txt" # Nombre del archivo de tu system prompt
 TEMPERATURE = 0.8
 MAX_TOKENS = 512
 TOP_P = 0.9
-STOP_SEQUENCES = ["\nUSER:"] # Lo ponemos como lista por si quieres añadir más
+STOP_SEQUENCES = ["\nUSER:", "\nUser:", "\nuser:"] # Lo ponemos como lista por si quieres añadir más
 
 # --- CONFIGURACIÓN DE IMAGEN (NOVELAI V4) ---
 # Estos ajustes afectan a la calidad por defecto de todas las imágenes
