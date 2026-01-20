@@ -19,9 +19,20 @@ PROMPT_FILE = "prompt.txt" # Nombre del archivo de tu system prompt
 
 # --- PARÁMETROS DE GENERACIÓN ---
 # Puedes ajustar estos valores cuando quieras
-TEMPERATURE = 0.8
+TEMPERATURE = 1.4
 MAX_TOKENS = 512
-TOP_P = 0.9
+TOP_P = 0.938
+MIN_LENGTH = 1
+TOP_K = 60
+TOP_A = 1
+TYPICAL_P = 1
+TAIL_FREE_SAMPLING = 1
+REPETITION_PENALTY = 1.04
+REPETITION_PENALTY_RANGE = 2048
+REPETITION_PENALTY_SLOPE = 0
+REPETITION_PENALTY_FREQUENCY = 0
+REPETITION_PENALTY_PRESENCE = 0.05
+MIN_P = 0.024
 STOP_SEQUENCES = ["\nUSER:", "\nUser:", "\nuser:"] # Lo ponemos como lista por si quieres añadir más
 
 # --- CONFIGURACIÓN DE IMAGEN (NOVELAI V4) ---
