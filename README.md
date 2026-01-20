@@ -1,4 +1,4 @@
-# NovelAI GLM-4.6 + Image Generation Telegram Bot (v0.5)
+# NovelAI GLM-4.6 + Image Generation Telegram Bot (v0.8)
 
 A conversational Python bot that brings NovelAI's powerful text and image models to Telegram.
 
