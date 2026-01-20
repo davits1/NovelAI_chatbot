@@ -64,7 +64,7 @@ Edit `prompt.txt` to change how the bot behaves. To enable image generation, ens
 Run the script to start the bot:
 
 ```bash
-python GLMBot_v0.5.py
+python GLMBot_v0.8.py
 ```
 
 The bot is now online\!
