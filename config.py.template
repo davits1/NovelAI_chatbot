@@ -3,14 +3,19 @@
 
 # --- SECRETOS ---
 # ¡IMPORTANTE! Añade este archivo a tu .gitignore
-TELEGRAM_TOKEN = "PASTE YOUR TELEGRAM TOKEN HERE"
-NOVELAI_API_KEY = "PASTE YOUR NOVELAI API KEY HERE"
+TELEGRAM_TOKEN = "TU TOKEN DE TELEGRAM"
+NOVELAI_API_KEY = "TU API KEY DE NOVELAI"
+
+# --- SPONTANEOUS MESSAGING ---
+SPONTANEOUS_MESSAGES_ENABLED = True
+SPONTANEOUS_CHECK_INTERVAL = 3600 # Check every hour
+SPONTANEOUS_INACTIVITY_THRESHOLD = 7200 # Message if silent for 2 hours
 
 # Historial de chat
 HISTORY_DIR = "chat_history"
 
 # Límite de contexto
-MAX_PROMPT_CHARS = 100000
+MAX_PROMPT_CHARS = 112000
 
 # --- CONFIGURACIÓN DEL MODELO ---
 BOT_NAME = "Aura" # Nombre de tu bot
@@ -33,7 +38,17 @@ REPETITION_PENALTY_SLOPE = 0
 REPETITION_PENALTY_FREQUENCY = 0
 REPETITION_PENALTY_PRESENCE = 0.05
 MIN_P = 0.024
-STOP_SEQUENCES = ["\nUSER:", "\nUser:", "\nuser:"] # Lo ponemos como lista por si quieres añadir más
+STOP_SEQUENCES = ["\nUSER:", "\nUser:", "\nuser:", "\nUSER :", "\n[System Note:"] # Prevent AI from generating user turns or system notes
+
+# --- CONFIGURACIÓN DE IMAGEN (NOVELAI V4) ---
+# Estos ajustes afectan a la calidad por defecto de todas las imágenes
+
+IMAGE_WIDTH = 832
+IMAGE_HEIGHT = 1216
+IMAGE_SCALE = 6
+IMAGE_STEPS = 28
+IMAGE_SAMPLER = "k_euler_ancestral"
+IMAGE_NOISE_SCHEDULE = "karras"
 
 # --- CONFIGURACIÓN DE IMAGEN (NOVELAI V4) ---
 # Estos ajustes afectan a la calidad por defecto de todas las imágenes
@@ -47,7 +62,18 @@ IMAGE_NOISE_SCHEDULE = "karras"
 
 # Tags de Calidad (Se añaden al INICIO de cada prompt)
 
+# Tags de Calidad (Se añaden al INICIO de cada prompt)
+
 DEFAULT_QUALITY_TAGS = "very aesthetic, masterpiece, no text"
+
+# --- TIME AWARENESS ---
+TIME_AWARENESS_ENABLED = True
+TIME_AWARENESS_THRESHOLD_MINUTES = 30
+
+# --- AUTO-SUMMARIZATION ---
+SUMMARY_THRESHOLD = 80000  # Characters (approx 20000 tokens)
+SUMMARY_CHUNK_SIZE = 12000  # Characters to summarize and remove from log
+
 
 # Undesired Content (Se envía como Negative Prompt oculto)
 
